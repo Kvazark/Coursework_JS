@@ -51,51 +51,65 @@ function buttonAdd(){
         x.appendChild(h1);
         title.value="";
     }
+
+
+
+let block = document.getElementsByTagName('div')[0];
+    title = block.children;
+    parentElement.insertBefore(newElement, referenceElement)
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(text));
+    document.getElementById("archiveList").appendChild(li);    
 }*/
 
 function d(){
-    
+    let element = document.querySelector('archive_button').textContent;
     
 }
 
 function addItem(){
+
+    
 
     let content_title = document.getElementById('input-title').value;
     let author = document.getElementById('input-author').value;
     let newCategory = document.getElementById('input-category').value;
     let content = document.getElementById('input-content').value;
 
-    let article =document.createElement("article");
-    article.innerHTML += `<h1>${content_title}</h1>
-    <p>Категория: `+`<strong>${newCategory}</strong></p>
-    <p>Автор: `+`<strong>${author}</strong></p>
-    <p>${content}</p>
-    <button class ="delete_button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"  type="submit">Удалить</button>
-    <button class ="archive_button" onclick="addArchive()" type="submit"></bottom>Архив</button>`;
+    if ((content_title === '') || (author ==='') ||(newCategory==='')||(content==='')){
+        alert('Заполните все поля.');
+    } else {
+        let article =document.createElement("article");
+        article.innerHTML += `<h1>${content_title}</h1>
+        <p>Категория: `+`<strong>${newCategory}</strong></p>
+        <p>Автор: `+`<strong>${author}</strong></p>
+        <p>${content}</p>
+        <button class ="delete_button" onclick="this.parentNode.parentNode.removeChild(this.parentNode);"  type="submit">Удалить</button>
+        <button class ="archive_button" onclick="addArchive(this)" type="submit">Архив</button>`;
 
-    document.getElementById('input-author').value ='';
-    document.getElementById('input-title').value =''; //
-    document.getElementById('input-category').value =''; 
-    document.getElementById('input-content').value =''; 
+        document.getElementById('input-author').value ='';
+        document.getElementById('input-title').value =''; //
+        document.getElementById('input-category').value =''; 
+        document.getElementById('input-content').value =''; 
+
+        document.getElementById('article').appendChild(article); 
+    }
 
     
-    document.getElementById('article').appendChild(article); 
     
 }
 
-function updateDisplay(val) {
-    document.getElementById("counter-label").innerHTML = val;
+
+function addArchive(element){
+    let parent = element.closest("article");    
+    let title = parent.querySelector("h1").textContent;
+
+    console.log('d');
+
+    let li = document.createElement("li");  
+    li.appendChild(document.createTextNode(title));
+    let ul = document.getElementById("archiveList").appendChild(li);
+
+    element.parentNode.parentNode.removeChild(element.parentNode);          
 }
 
-function forDelete() {
-    let buttons = document.querySelectorAll('button[id=delete]');
-    buttons.forEach(e=> {
-        e.addEventListener('click', clickButtonDelete);
-    });
-}
-function addArchive(){
-    
-}
-function deleteArticle(){
-    div.remove();
-}

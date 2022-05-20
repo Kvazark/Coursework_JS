@@ -36,7 +36,12 @@ body{
     border: 0;
 }
 section{
-    margin-top: auto; 
+    margin-top: auto;
+    
+}
+ul{
+    max-height: 50px;
+    overflow-y: auto;
 }
 main{ 
     margin: 20px;
