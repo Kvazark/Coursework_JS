@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="operation.js"></script>
+        <title>Блог</title>
+        <link rel="stylesheet" type="text/css" href="blogStyle.css">
+    </head>
+    <body>
+        <header class ="heading">Блог</header>
+        <main>
+            <header class = "title">Записи</header>
+            <hr class = "under_heading">
+            <div id="article" class="artic"></div>
+        </main>
+        <aside>
+            <header class = "title">Создать запись</header>
+            <hr class = "under_heading">
+            <form id ='items'>
+                <p class ="form-input"> 
+                    <label for="input-author">Автор</label>                      
+                    <input type="text"  id="input-author">     
+                </p>
+                <p class ="form-input"> 
+                    <label for="input-title">Заголовок</label>                      
+                    <input type="text"  id="input-title" >     
+                </p>
+                <p class ="form-input"> 
+                    <label for="input-category">Категория</label>                      
+                    <input type="text" id="input-category">     
+                </p>
+                <p class ="form-input"> 
+                    <label for="content">Содержание</label>                      
+                    <textarea id = "input-content" lang = "en" class ="area" rows="12" cols="37" name="text"></textarea>  
+                </p>
+            </form>
+            <input type ="button" class ="create_button" onclick="addItem()" value="Создать">
+            <section class = "archive">
+                <header class = "title">Архив</header>
+                <hr class = "under_heading">
+                <ul type = 'square'>
+                </ul>                
+            </section>
+            
+        </aside>
+        
+        <footer>
+            <hr class ="foot">
+            <p class = "footer">Курсовая работа по <span style="font-family: lucida sans unicode; font-weight: 700">JS</span>.</footer>
+    </body>
+</html>
